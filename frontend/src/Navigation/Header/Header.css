@@ -1,0 +1,25 @@
+.headerDetails{
+    display: flex;
+    background-color: #fff;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.16);
+    justify-content: space-between;
+    position: sticky;
+    align-items: center;
+}
+.logoDiv{
+    width: 20%;
+}
+.menuDiv{
+    width: 70%;
+    float: right;
+}
+.menuDiv ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+    float: right;
+}
+.menuDiv ul li{
+    list-style-type: none;
+}
