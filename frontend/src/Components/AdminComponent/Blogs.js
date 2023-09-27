@@ -10,6 +10,7 @@ const Blogs = () => {
     })
       .then((response) => response.json())
       .then((responseData) => {
+        console.log(responseData);
         if (responseData.success && responseData.data.length > 0) {
           setBlogdata(responseData.data)
           setLastItem(responseData.data[responseData.data.length - 1]); // Set the last item
@@ -41,8 +42,8 @@ const Blogs = () => {
           </div>
         </div>
         <div className='LastFewBlogs'>
-          {blogData?.map((item) => {
-            if (item._id != lastItem._id) {
+          {blogData?.map((item,i) => {
+            if (item._id != lastItem._id && i < 2) {
               return (
                 <div class="BlogDiv">
                   <div class="card-blog">

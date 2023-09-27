@@ -21,9 +21,6 @@ const Main = () => {
 
         {/* <Blogs /> */}
         </div>
-        <div className='footer'>
-            <Footer />
-        </div>
       </div>
         </Router>
     </div>
