@@ -18,6 +18,7 @@ const AddBlogs = () => {
         },
         blogPublisher : ''
     })
+    console.log("blogDetails",blogDetails)
 const handleChange = async (e, field) => {
     if (field !== 'blogImage' && field !== 'blogDate') {
       const actualValue = e.target.value;
@@ -44,7 +45,7 @@ const handleChange = async (e, field) => {
         });
       }
     } else {
-      const newFiles = Array.from(e.target.files);
+      const newFile = e.target.files[0];
       const convertFileToBase64 = (file) => {
         return new Promise((resolve, reject) => {
           const reader = new FileReader();
@@ -54,15 +55,15 @@ const handleChange = async (e, field) => {
         });
       };
       try {
-        const base64Images = await Promise.all(newFiles.map(file => convertFileToBase64(file)));
-        const newImages = newFiles.map((file, index) => ({
-          fileName: file.name,
-          contentType: file.type,
-          data: base64Images[index],
-        }));
+        const base64Image = await convertFileToBase64(newFile);
+        const newImage = {
+          fileName: newFile.name,
+          contentType: newFile.type,
+          data: base64Image,
+        };
         setBlogDetails({
           ...blogDetails,
-          blogImage: newImages,
+          blogImage: newImage,
         });
       } catch (error) {
         console.error('Error converting images to base64:', error);

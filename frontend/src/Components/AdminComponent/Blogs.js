@@ -41,7 +41,8 @@ const Blogs = () => {
             </div>
           </div>
         </div>
-        <div className='LastFewBlogs'>
+          <div className='BlogDivs'>
+          <div className='LastFewBlogs'>
           {blogData?.map((item,i) => {
             if (item._id != lastItem._id && i < 2) {
               return (
@@ -59,6 +60,7 @@ const Blogs = () => {
           })
           }
         </div>
+          </div>
       </div>
     </div>
   )
