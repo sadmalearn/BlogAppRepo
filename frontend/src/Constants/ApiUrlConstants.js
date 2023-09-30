@@ -6,5 +6,6 @@ const baseURL = getActivProfile(ProfileConstant.Dev);
 export const Url = {
   getAllBlogs : baseURL + 'getAllBlogs',
   getBlogById : baseURL + 'getBlogbyId/:id',
-  addBlogs : baseURL + "addBlogs"
+  addBlogs : baseURL + "addBlogs",
+  getLastBlogId : baseURL + "getLastBlogId",
 }

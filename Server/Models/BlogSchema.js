@@ -21,10 +21,6 @@ const blogSchema = mongoose.Schema({
             type: String,
         },
     },
-    blogPublisher: {
-        type: String,
-    },
-    // Add a field for storing the Base64 encoded image
     blogImage: {
         data: String, // Store the image data as a Base64 encoded string
         contentType: String, // Content type of the image (e.g., 'image/jpeg', 'image/png')

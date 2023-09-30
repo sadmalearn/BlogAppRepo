@@ -28,3 +28,6 @@
 .footer{
     text-align: center;
 }
+.form-body label{
+    display: block;
+}
