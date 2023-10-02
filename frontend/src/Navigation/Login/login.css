@@ -1,0 +1,99 @@
+.main {
+    padding: 0;
+    text-align: center;
+    height: 100vh;
+    background-image: url(../../Assets/backgroundImage.avif);
+    background-size: 100% 100%;
+  }
+
+.formDiv{
+    width: 25%;
+    position: absolute;
+    top: 35%;
+    right: 5%;
+    background: #fff;
+    padding: 2% 5%;
+    border-radius: 10px;
+}  
+.my_form-control
+{
+    width: 100%;
+    padding: 8px;
+    padding-top: 18px;
+    border: none;
+    border-bottom: 1pt solid #bfbfbf;
+    transition: all 200ms ease-in-out;
+}
+
+.my_place
+{
+    position: absolute;
+    pointer-events: none;
+    top: 25px;
+    left: 5px;
+    color: #0073ff;
+    transition:  0.2s ease all;
+    
+
+}
+
+.my_form-control:focus
+{
+    width: 100%;
+    padding: 8px;
+    padding-top: 18px;
+    border: none;
+    border-bottom: 2px solid #0073ff;
+    outline: none;
+}
+.form-group{
+    position: relative;
+    margin: 10px 0;
+    text-align: left;
+}
+.CreateAccountBtn{    
+    width: 45%;
+    margin-top: 10px;
+    font-size: 80%;
+    display: block;
+    color: #dc3545;
+}
+.invalid-feedback{
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #dc3545;
+}
+input:focus ~ .my_place{
+    top: -6px;
+}
+input:not(:focus):valid + .my_place
+{
+    top: -6px;
+}
+.formDiv button{
+    border-radius: 5px;
+    box-shadow: 0 3px 4px #8abfff;
+    background-image: linear-gradient(to right, #7bc3f6, #3946a1, #7bc3f6);
+    background-size: 200%;
+    width: 250px;
+    border: none;
+    outline: none;
+    transition: .3s ease-in-out;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+}
+.formDiv button:hover {
+    color: #fff;
+    background-color: #0069d9;
+    border-color: #0062cc;
+    background-position: right;
+}
+.bottomDiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
