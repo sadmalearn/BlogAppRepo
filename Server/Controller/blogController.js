@@ -66,8 +66,8 @@ const getAllBlogs = async (req, res) => {
 const deleteBlog = async (req, res) => {
     const { id } = req.params;
     try {
-        const deleteStudent = await blogs.deleteOne({ blogId: id });
-        if (deleteStudent) {
+        const deleteBlog = await blogs.deleteOne({ blogId: id });
+        if (deleteBlog) {
             const blogsData = await blogs.find().sort({ blogId: 1 });
             res.send({ success: true, message: "Blog Deleted Successfully!", data: blogsData });
         } else {
