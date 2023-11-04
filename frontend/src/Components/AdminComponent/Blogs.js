@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "./Blog.css"
 import { Url } from '../../Constants/ApiUrlConstants';
 import ReactModal from 'react-modal';
-import { NavLink } from 'react-router-dom/cjs/react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom/cjs/react-router-dom';
 const Blogs = () => {
   const [blogData, setBlogdata] = useState()
   const [lastItem, setLastItem] = useState(null)
@@ -22,6 +22,7 @@ const Blogs = () => {
       filename: ''
     }
   })
+  const history = useHistory()
   const handleAddBugPopupCloseModal = () => {
     setAddBlogPopup(false);
   };
@@ -54,7 +55,11 @@ const Blogs = () => {
   }, []);
   const showDetails = (item) => {
     console.log(item);
-
+    history.push({
+      pathname: '/main/ViewBlog',
+      state: { data: item }
+    })
+    sessionStorage.setItem('BlogId',item?._id)
   }
 
 
@@ -142,8 +147,9 @@ const Blogs = () => {
               <div className="HeadContent">
                 <h1 className="">{lastItem?.blogTitle}</h1>
                 <p className="">{lastItem?.blogDesc}</p>
-                <NavLink to='/main/ViewBlogs'>
-                  <button type="button" className='button' onClick={() => { showDetails(lastItem) }}>Read Article</button></NavLink>
+                {/* <NavLink to='/main/ViewBlogs'> */}
+                  <button type="button" className='button' onClick={() => { showDetails(lastItem) }}>Read Article</button>
+                {/* </NavLink> */}
               </div>
             </div>
           </div>

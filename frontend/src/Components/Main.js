@@ -18,10 +18,10 @@ const Main = () => {
         </div>
         <div className='contentDiv'>
         
-        <Route exact path="/main/ViewBlog" component={ViewBlogDetails} />
-        <Route exact path="/main/Blogs" component={Blogs} />
         <Route exact path="/" component={Login} />
         <Route exact path="/Registration" component={Registration} />
+        <Route exact path="/main/Blogs" component={Blogs} />
+        <Route exact path="/main/ViewBlog" component={ViewBlogDetails} />
 
         {/* <Blogs /> */}
         </div>
