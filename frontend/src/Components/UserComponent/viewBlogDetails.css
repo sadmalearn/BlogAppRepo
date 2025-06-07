@@ -8,12 +8,13 @@
     height: 250px;
     border-radius: 10px;
     margin: 10px;
+    object-fit: cover;
 }
 .mainHeadingImage h3{
     text-align: left;
     margin: 0;
 }
-.HeadingTitledata {
+.HeadingTitledata,.blogSecondRowDetails {
     display: flex;
     align-items: center;
     justify-content: space-between;

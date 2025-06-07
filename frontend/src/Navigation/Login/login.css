@@ -1,98 +1,117 @@
+:root {
+    --bs-gradient-dark-right: #F0F4F8;       /* light gray-blue (background variant) */
+    --bs-gradient-dark-left: #FFFFFF;        /* pure white (background) */
+    --bs-gradient-primary-right: #4CAF50;    /* fresh green (accent gradient) */
+    --bs-gradient-primary-left: #2196F3;     /* bright blue (accent gradient) */
+    --bs-dark: #212121;                       /* very dark gray (primary text) */
+    --bs-primary: #4CAF50;                    /* fresh green (primary accent) */
+    --bs-body-color: #757575;                 /* medium gray (secondary text) */
+    --bs-category-accent: #2CA69B;            /* teal-green for category label */
+    --bs-error-color: #dc3545;                 /* error red */
+    --bs-shadow-color: #8abfff;                /* shadow for button */
+    --bs-hover-bg-color: #0069d9;              /* button hover background */
+    --bs-hover-border-color: #0062cc;          /* button hover border */
+    --bs-border-bottom-color: #bfbfbf;         /* input border bottom */
+}
+
 .main {
     padding: 0;
     text-align: center;
     height: 100vh;
     background-image: url(../../Assets/backgroundImage.avif);
     background-size: 100% 100%;
-  }
+}
 
-.formDiv{
+.formDiv {
     width: 25%;
     position: absolute;
     top: 35%;
     right: 5%;
-    background: #fff;
+    background: var(--bs-gradient-dark-left);
     padding: 2% 5%;
     border-radius: 10px;
-}  
-.my_form-control
-{
+}
+
+.my_form-control {
     width: 100%;
     padding: 8px;
     padding-top: 18px;
     border: none;
-    border-bottom: 1pt solid #bfbfbf;
+    border-bottom: 1pt solid var(--bs-border-bottom-color);
     transition: all 200ms ease-in-out;
 }
 
-.my_place
-{
+.my_place {
     position: absolute;
     pointer-events: none;
     top: 25px;
     left: 5px;
-    color: #0073ff;
-    transition:  0.2s ease all;
-    
-
+    color: var(--bs-gradient-primary-left);
+    transition: 0.2s ease all;
 }
 
-.my_form-control:focus
-{
+.my_form-control:focus {
     width: 100%;
     padding: 8px;
     padding-top: 18px;
     border: none;
-    border-bottom: 2px solid #0073ff;
+    border-bottom: 2px solid var(--bs-gradient-primary-left);
     outline: none;
 }
-.form-group{
+
+.form-group {
     position: relative;
     margin: 10px 0;
     text-align: left;
 }
-.CreateAccountBtn{    
+
+.CreateAccountBtn {
     width: 45%;
     margin-top: 10px;
     font-size: 80%;
     display: block;
-    color: #dc3545;
+    color: var(--bs-error-color);
 }
-.invalid-feedback{
+
+.invalid-feedback {
     width: 100%;
     margin-top: 0.25rem;
     font-size: 80%;
-    color: #dc3545;
+    color: var(--bs-error-color);
 }
-input:focus ~ .my_place{
+
+input:focus ~ .my_place {
     top: -6px;
 }
-input:not(:focus):valid + .my_place
-{
+
+input:not(:focus):valid + .my_place {
     top: -6px;
 }
-.formDiv button{
+
+.formDiv button {
     border-radius: 5px;
-    box-shadow: 0 3px 4px #8abfff;
-    background-image: linear-gradient(to right, #7bc3f6, #3946a1, #7bc3f6);
+    box-shadow: 0 3px 4px var(--bs-shadow-color);
+    background-image: linear-gradient(to right, var(--bs-gradient-primary-left), var(--bs-gradient-dark-right), var(--bs-gradient-primary-left));
     background-size: 200%;
     width: 250px;
     border: none;
     outline: none;
-    transition: .3s ease-in-out;
-    color: #ffffff;
+    transition: 0.3s ease-in-out;
+    color: var(--bs-gradient-dark-left);
     font-size: 12px;
     font-weight: bold;
     padding: 12px 45px;
     letter-spacing: 1px;
 }
+
 .formDiv button:hover {
-    color: #fff;
-    background-color: #0069d9;
-    border-color: #0062cc;
+    color: var(--bs-gradient-dark-left);
+    background-color: var(--bs-hover-bg-color);
+    border-color: var(--bs-hover-border-color);
     background-position: right;
 }
-.bottomDiv{
+
+.bottomDiv {
     display: flex;
     align-items: center;
     justify-content: space-between;

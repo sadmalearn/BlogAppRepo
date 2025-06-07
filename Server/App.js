@@ -13,6 +13,7 @@ app.use(cors())
 app.use(bodyParser.json())
 
 app.use('/api',require('./Routes/blogRouters'))
+app.use('/api',require('./Routes/userRouter'))
 
 app.listen(3000,()=>{
     console.log('app is listening on port no. 3000 ');

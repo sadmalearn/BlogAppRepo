@@ -1,20 +1,40 @@
 const blogs = require('../Models/BlogSchema')
 const addBlogs = async (req, res) => {
-    const { blogId, blogTitle,blogDesc, blogAuthor,blogDate, blogImage } = req.body
-    const blogAvailable = await blogs.findOne({ blogId })
+  // Destructure based on new frontend keys 
+  const {blogId, title, author, content, tags, category, published, publishedAt, blogImage } = req.body;
+
+  try {
+    // Check if blog with same title & publishedAt already exists to avoid duplicates (adjust as needed)
+    const blogAvailable = await blogs.findOne({ title, publishedAt });
+
     if (blogAvailable) {
-        res.send({ message: 'Blog Id Present' })
-    } else {
-        const blogCreate = await blogs.create({
-            blogId, blogTitle,blogDesc, blogAuthor,blogDate,blogImage
-        })
-        if (blogCreate) {
-            res.send({ status: 200, success: true, message: 'Blog Created Succesfully !' })
-        } else {
-            res.send({ status: 400, success: false, message: 'Something Went Wrong' })
-        }
+      return res.status(409).send({ message: 'Blog with same title and date already exists' });
     }
+
+    // Create new blog document
+    const blogCreate = await blogs.create({
+        blogId,
+      title,
+      author,
+      content,
+      tags,
+      category,
+      published,
+      publishedAt,
+      blogImage,
+    });
+    console.log(blogCreate)
+    if (blogCreate) {
+      return res.status(201).send({ success: true, message: 'Blog created successfully!' });
+    } else {
+      return res.status(400).send({ success: false, message: 'Failed to create blog' });
+    }
+  } catch (error) {
+    console.error("Error in addBlogs:", error);
+    return res.status(500).send({ success: false, message: 'Internal Server Error' });
+  }
 }
+
 const getBlogbyId = async (req, res) => {
     const { id } = req.params;
     try {
@@ -30,24 +50,45 @@ const getBlogbyId = async (req, res) => {
     }
 };
 const updateBlog = async (req, res) => {
-    const { blogId, blogTitle,blogDesc, blogAuthor } = req.body;
-    const { id } = req.params;
-    try {
-        const updatedBlog = await blogs.findByIdAndUpdate(
-            id,
-            { blogId, blogTitle,blogDesc, blogAuthor },
-            { new: true }
-        );
-        if (updatedBlog) {
-            res.send({ message: 'Blog Updated Successfully!' });
-        } else {
-            res.status(500).send({ message: 'Blog Not Found or Update Failed' });
-        }
-    } catch (error) {
-        console.error('Error updating blog:', error);
-        res.status(500).send({ message: 'Something Went Wrong' });
+  const {
+    title,
+    author,
+    content,
+    tags,
+    category,
+    published,
+    publishedAt,
+    blogImage
+  } = req.body;
+  const { id } = req.params;
+
+  try {
+    const updatedBlog = await blogs.findByIdAndUpdate(
+      id,
+      {
+        title,
+        author,
+        content,
+        tags,
+        category,
+        published,
+        publishedAt,
+        blogImage
+      },
+      { new: true }
+    );
+
+    if (updatedBlog) {
+      res.status(200).send({ message: 'Blog Updated Successfully!', success: true, data: updatedBlog });
+    } else {
+      res.status(404).send({ message: 'Blog Not Found or Update Failed', success: false });
     }
+  } catch (error) {
+    console.error('Error updating blog:', error);
+    res.status(500).send({ message: 'Something Went Wrong', success: false });
+  }
 };
+
 
 const getAllBlogs = async (req, res) => {
     try {

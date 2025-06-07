@@ -1,36 +1,29 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import "./Header.css"
-import { NavLink } from 'react-router-dom/cjs/react-router-dom'
+
 const Header = () => {
-    return (
-        <div className='headerDetails'>
-            <div className='logoDiv'>
-                logo
-            </div>
-            <div className='menuDiv'>
-                <ul class="navbar-nav">
-                    <NavLink to='/main/Blogs'>
-                        <li class="nav-item">
-                            Show Blogs
-                        </li>
-                    </NavLink>
+  return (
+    <header className="headerDetails">
+      <div className="logoDiv">
+        <span className="logoText">MyBlogSite</span>
+      </div>
+      <nav className="menuDiv">
+        <ul className="navbar-nav">
+          <li>
+            <NavLink to='/main/Blogs' className="nav-item" activeclassname="active">
+              Show Blogs
+            </NavLink>
+          </li> 
+          <NavLink to='/main/HowItWorks' className="nav-item" activeclassname="active">
+  How it works
+</NavLink>
 
-                    <NavLink to='/main/AddBlogs'>
-                        <li class="nav-item">Add Blogs
-                        </li>
-                    </NavLink>
-                    <li class="nav-item">
-                        How it works
-
-                    </li>
-                    <li class="nav-item">
-                        Blog
-
-                    </li>
-                </ul>
-            </div>
-        </div>
-    )
+          <li className="nav-item">Blog</li>
+        </ul>
+      </nav>
+    </header>
+  )
 }
 
 export default Header
