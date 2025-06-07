@@ -1,7 +1,7 @@
 import { getActivProfile } from "../Profiles/Profiles";
 import { ProfileConstant } from "./ProfileConstants";
 
-const baseURL = getActivProfile(ProfileConstant.Dev);
+const baseURL = getActivProfile(ProfileConstant.Test);
 
 export const Url = {
   registerUser : baseURL + "registerUser",

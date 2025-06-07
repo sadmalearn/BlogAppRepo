@@ -1,6 +1,6 @@
 export const ApiProfile = {
     Dev: 'http://localhost:3000/api/', 
-    Test: 'http://18.216.19.237:8080/vitesco-test-automation-api/api/v1/',
+    Test: 'https://blogapprepo.onrender.com',
     UAT: '',
     Prod: ''
 }
