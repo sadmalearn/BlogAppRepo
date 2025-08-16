@@ -1,6 +1,6 @@
 export const ApiProfile = {
     Dev: 'http://localhost:3000/api/', 
-    Test: 'https://blogapprepo.onrender.com',
+    Test: 'https://blogapprepo.onrender.com/api/',
     UAT: '',
     Prod: ''
 }
